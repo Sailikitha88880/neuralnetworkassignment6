@@ -1,0 +1,22 @@
+<?php
+// Database connection parameters
+$servername = "localhost";
+$username = "root";
+$password = ""; // If you have set a password for your MySQL database, put it here
+$database = "your_database_name";
+
+try {
+    // Create a PDO connection to the MySQL database
+    $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+
+    // Set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    echo "Connected successfully";
+} catch (PDOException $e) {
+    die("Connection failed: " . $e->getMessage());
+}
+
+// Close the connection when you're done
+$conn = null;
+?>
